@@ -1,6 +1,7 @@
 from flask import Flask,request,render_template
 import numpy as np
 import pandas as pd
+import time
 from sklearn.preprocessing  import StandardScaler 
 from src.pipeline.predict_pipeline import customData,predictpipeline
 application=Flask(__name__)
@@ -22,7 +23,10 @@ def predict_datapoint():
         print(pred_df)                         
         
         predict_pipeline=predictpipeline()
+        start_time = time.time()
         results=predict_pipeline.predict(pred_df)
+        latency = time.time() - start_time
+        print('Latency: {} seconds'.format(latency))
         print(results)
         return render_template('result.html',results=results)
        
