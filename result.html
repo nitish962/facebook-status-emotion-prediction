@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		<div id="brandname">
+			ML App
+		</div>
+		<h2>FACEBOOK STATUS EMOTION DETECTION SYSTEM</h2>
+		
+	</div>
+	</header>
+	<p style="color:blue;font: size 25;;text-align: center;"><b>Results for Comment</b></p>
+	<div class="results">
+		
+	{% if results == 3%}
+	<h2 style="color:gold;">joy </h2>
+	{% elif results == 6%}
+	<h2 style="color:red;">sadness </h2>
+    {% elif results == 2%}
+	<h2 style="color:black;">fear </h2>
+    {% elif results == 0%}
+	<h2 style="color:darkred;">anger </h2>
+    {% elif results == 8%}
+	<h2 style="color:yellow;">surprise </h2>
+    {% elif results == 5%}
+	<h2 style="color:azure;">neutral </h2>
+    {% elif results == 4%}
+	<h2 style="color:plum;">love </h2>
+    {% elif results == 1%}
+	<h2 style="color:darkslategrey;">disgust </h2>
+    {% elif results == 7%}
+	<h2 style="color:violet;">shame </h2>
+	{% endif %}
+
+	</div>
+
+</body>
+</html>
