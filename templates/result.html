@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Emotion Detection Results</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			color: #333;
+		}
+		header {
+			background-color: #003366;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		#brandname {
+			font-size: 36px;
+			font-weight: bold;
+			margin: 0;
+		}
+		h2 {
+			font-size: 24px;
+			font-weight: normal;
+			margin: 0;
+			margin-top: 10px;
+		}
+		p {
+			font-size: 20px;
+			font-weight: bold;
+			text-align: center;
+			margin-top: 50px;
+			margin-bottom: 30px;
+		}
+		.results {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 50px;
+		}
+		.results h2 {
+			font-size: 40px;
+			font-weight: bold;
+			margin: 0;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			text-align: center;
+			text-transform: capitalize;
+			letter-spacing: 2px;
+		}
+		.results h2:before, .results h2:after {
+			content: "";
+			display: inline-block;
+			width: 40px;
+			height: 2px;
+			background-color: #333;
+			vertical-align: middle;
+			margin: 0 20px;
+		}
+		.results h2:after {
+			margin-left: 0;
+			margin-right: 20px;
+		}
+		.btn-info {
+			background-color: #003366;
+			color: #fff;
+			font-size: 18px;
+			font-weight: bold;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+		}
+		.btn-info:hover {
+			background-color: #fff;
+			color: #003366;
+			border: 2px solid #003366;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div id="brandname">
+				ML App
+			</div>
+			<h2>FACEBOOK STATUS EMOTION DETECTION SYSTEM</h2>
+		</div>
+	</header>
+	<p>Results for Comment</p>
+	<div class="results">
+		{% if results == 3%}
+		<h2 style="color:gold;">joy</h2>
+		{% elif results == 6%}
+		<h2 style="color:red;">sadness</h2>
+	    {% elif results == 2%}
+		<h2 style="color:black;">fear</h2>
+	    {% elif results == 0%}
+		<h2 style="color:darkred;">anger</h2>
+		{% elif results == 8%}
+		<h2 style="color:yellow;">surprise </h2>
+	    {% elif results == 5%}
+		<h2 style="color:azure;">neutral </h2>
+	    {% elif results == 4%}
+		<h2 style="color:plum;">love </h2>
+	    {% elif results == 1%}
+		<h2 style="color:darkslategrey;">disgust </h2>
+	    {% elif results == 7%}
+		<h2 style="color:violet;">shame </h2>
+		{% endif %}
+	</div>
+</body>
+</html>
