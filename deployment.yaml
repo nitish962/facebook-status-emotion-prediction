@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emotion-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emotion-app
+  template:
+    metadata:
+      labels:
+        app: emotion-app
+    spec:
+      containers:
+      - name: emotion-container
+        image: emotion-app:latest
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: emotion-service
+spec:
+  selector:
+    app: emotion-app
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: LoadBalancer
