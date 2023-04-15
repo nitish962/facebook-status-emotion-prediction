@@ -14,8 +14,6 @@ spec:
     spec:
       containers:
       - name: emotion-container
-        image: gcr.io/facebook-nlp/<image-name>
+        image: emotion-app:latest
         ports:
         - containerPort: 5000
-      imagePullSecrets:
-      - name: gcr-json-key
