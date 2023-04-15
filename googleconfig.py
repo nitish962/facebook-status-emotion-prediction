@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: emotion-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: emotion-app
   template:
     metadata:
       labels:
-        app: my-app
+        app: emotion-app
     spec:
       containers:
-      - name: my-container
-        image: <your-docker-image-name>
+      - name: emotion-container
+        image: gcr.io/<project-id>/<image-name>
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+      - name: gcr-json-key
